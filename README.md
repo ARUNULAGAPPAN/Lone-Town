@@ -1,7 +1,8 @@
 # Lone-Town
 <div align="center">
 
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/e1dcbe17-cc16-4d15-9081-c1737d1b470e" />
+<img width="1919" height="1079" alt="Screenshot 2025-07-19 095313" src="https://github.com/user-attachments/assets/c1970866-f703-45da-8c08-960be47bf2f3" />
+
 
 
 # 🌆 Lone Town - The Mindful Dating App
