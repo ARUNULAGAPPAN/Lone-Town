@@ -141,11 +141,8 @@ Visit http://localhost:5173 in your browser.
 🧠 Creator Info
 <div align="center">
 Made with ❤️ by S. Arun Ulagappan
-Follow my journey & tech projects:
 
+Follow me on 
+🔗 LinkedIn: https://www.linkedin.com/in/arunulagappan2024/
 
-
-
-⭐ Star this repo if you support mindful dating in a digital world.
-
-</div> ```
+📸 Instagram: https://www.instagram.com/the__great__rex/
