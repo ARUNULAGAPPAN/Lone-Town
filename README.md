@@ -15,10 +15,8 @@ Lone Town is a serene, mindful dating platform delivering **just one meaningful 
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
-[![Socket.io](https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socketdotio&logoColor=white)](https://socket.io/)
 [![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 
-[🚀 Live Demo](https://your-deployment-link.vercel.app/) *(Coming Soon)*  
 [📦 GitHub Repository](https://github.com/ARUNULAGAPPAN/Lone-Town)
 
 </div>
@@ -69,7 +67,7 @@ In a sea of superficial swipes, **Lone Town** dares to go deep.
 
 ---
 
-## 🎬 Demo Preview
+## 
 
 <div align="center">
 
