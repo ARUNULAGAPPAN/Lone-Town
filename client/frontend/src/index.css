@@ -1,0 +1,778 @@
+/* frontend/src/index.css - THE COMPLETE AND UNIFIED STYLESHEET */
+
+/* --- 1. Import Romantic Font --- */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+/* --- 2. CSS Variables (The "Theme") --- */
+:root {
+  --primary-red: #ff2d55;
+  --glow-red: #ff4d6d;
+  --dark-bg: #1a1a1d;
+  --dark-card: #2c2c34;
+  --text-light: #f4f4f5;
+  --text-muted: #a9a9a9;
+  --border-color: #404040;
+}
+
+/* --- 3. Body & Custom Glowing Cursor --- */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--text-light);
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+html {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="8" fill="%23ff2d55" style="filter: drop-shadow(0 0 3px %23ff4d6d);"/></svg>') 16 16, auto;
+}
+
+a, button {
+  cursor: pointer;
+}
+
+/* --- 4. Main App Layout & Header --- */
+/* Note: The .container class is now applied conditionally by components */
+header {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  color: var(--primary-red);
+  text-shadow: 0 0 10px var(--glow-red), 0 0 20px var(--glow-red);
+  margin: 0;
+}
+
+/* --- 5. Glowing Buttons & Links --- */
+button, .btn-primary {
+  padding: 12px 24px;
+  border: 1px solid var(--primary-red);
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--text-light);
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px var(--glow-red), inset 0 0 5px rgba(255, 45, 85, 0.3);
+  text-shadow: 0 0 3px rgba(244, 244, 245, 0.5);
+  text-decoration: none;
+  display: inline-block;
+}
+
+button:hover, .btn-primary:hover {
+  background-color: var(--primary-red);
+  color: white;
+  box-shadow: 0 0 25px var(--glow-red), inset 0 0 10px rgba(255, 77, 109, 0.5);
+  transform: scale(1.05);
+}
+
+a {
+  color: var(--primary-red);
+  text-decoration: none;
+}
+
+/* --- 6. Form Styling --- */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: var(--dark-card);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  max-width: 600px; /* Give forms a max width */
+  margin: 2rem auto; /* Center the form container */
+}
+
+.form-container h2 {
+  text-align: center;
+  color: var(--primary-red);
+  text-shadow: 0 0 8px var(--glow-red);
+  margin-top: 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--dark-bg);
+  color: var(--text-light);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-red);
+  box-shadow: 0 0 10px var(--glow-red);
+}
+
+/* --- 7. Hero Landing Page --- */
+.hero-landing-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-title-secondary {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  margin-bottom: -1rem;
+}
+
+.hero-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 4vw, 2rem);
+  margin: 1rem 0;
+}
+
+.hero-title-primary {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(4rem, 12vw, 7rem);
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 0 0 30px var(--glow-red);
+}
+
+.hero-heart-image {
+  width: clamp(150px, 30vw, 250px);
+  height: auto;
+  filter: drop-shadow(0 0 30px var(--glow-red));
+  animation: pulse 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 400px;
+  margin: 0 auto 2rem auto;
+}
+
+.hero-button {
+  transform: scale(1.1);
+}
+
+.login-link {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+/* --- 8. Conditional Layout Rules --- */
+body:has(.hero-landing-container) header {
+  display: none; /* Hide header on the landing page */
+}
+
+/* This class is applied to the main div for logged-in users */
+.homepage-loggedIn {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* --- 9. Profile Hub & Cards --- */
+.profile-hub {
+  text-align: center;
+}
+
+.profile-hub p {
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.profile-card {
+  background-color: var(--dark-card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  border-color: var(--primary-red);
+}
+
+.profile-card h3 {
+  color: var(--primary-red);
+  margin-top: 0;
+}
+
+.request-btn {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* --- 10. Chat & Status Screens --- */
+.status-container {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--dark-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.message-list {
+  height: 400px;
+  overflow-y: scroll;
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: var(--dark-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.message-list p {
+  max-width: 70%;
+  padding: 8px 14px;
+  border-radius: 18px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+/* --- 11. TWO-COLUMN AUTH PAGE STYLES (REVISED) --- */
+
+.auth-page-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns */
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1100px; /* A bit wider for this layout */
+  margin: 2rem auto; /* Give it some space from the header */
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.auth-form-column {
+  display: flex;
+  justify-content: flex-start; /* Align form to the left */
+}
+
+/* We reuse .form-container but make sure it takes full width of its column */
+.form-container {
+  width: 100%;
+  background-color: transparent; /* Make the form container transparent */
+  border: none; /* Remove the border from the form container */
+  padding: 0; /* Remove padding */
+}
+
+.form-container h2 {
+  text-align: left; /* Align title to the left */
+  font-size: 2.5rem;
+}
+
+.form-container .form-subtitle {
+  text-align: left; /* Align subtitle to the left */
+  color: var(--text-muted);
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+}
+
+/* This is the new class for each label-input pair */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-container label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+/* Target the input fields within the form container */
+.form-container input {
+  width: 100%;
+  box-sizing: border-box; /* Important for padding and width */
+}
+
+.form-container button {
+  width: auto; /* Allow button to size to its content */
+  align-self: flex-start; /* Align button to the left */
+  margin-top: 1rem;
+}
+
+.auth-switch {
+  text-align: left;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+.auth-image-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-heart-image {
+  width: 80%;
+  max-width: 450px;
+  filter: drop-shadow(0 0 40px var(--glow-red));
+  animation: pulse 2.5s infinite ease-in-out;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 900px) {
+  .auth-page-container {
+    grid-template-columns: 1fr; /* Switch to single column */
+  }
+  .auth-image-column {
+    display: none; /* Hide the image on small screens */
+  }
+  .auth-form-column {
+    justify-content: center; /* Center the form on small screens */
+  }
+  .form-container {
+    background-color: var(--dark-card); /* Add a background on mobile for clarity */
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+  }
+}
+/* --- 12. EDIT PROFILE PAGE STYLES --- */
+
+.edit-profile-container {
+  display: grid;
+  grid-template-columns: 300px 1fr; /* Fixed sidebar for pic, flexible for form */
+  gap: 3rem;
+  background-color: var(--dark-card);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+
+.profile-picture-column {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-picture-preview {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%; /* Make it circular */
+  object-fit: cover; /* Prevents image from stretching */
+  border: 4px solid var(--primary-red);
+  box-shadow: 0 0 15px var(--glow-red);
+}
+
+.image-upload-label {
+  /* Style the label to look like a button */
+  padding: 10px 20px;
+  border: 1px solid var(--primary-red);
+  border-radius: 8px;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 80%;
+}
+
+.image-upload-label:hover {
+  background-color: var(--primary-red);
+}
+
+.profile-details-column h2 {
+  text-align: left;
+  margin-top: 0;
+  color: var(--primary-red);
+  text-shadow: 0 0 8px var(--glow-red);
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* New grid layout for side-by-side dropdowns */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.profile-form label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.profile-form textarea {
+    resize: vertical; /* Allow users to resize the bio field */
+}
+
+.profile-form button {
+  align-self: flex-start; /* Align button to the left */
+  margin-top: 1rem;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 900px) {
+  .edit-profile-container {
+    grid-template-columns: 1fr; /* Stack the columns */
+  }
+}
+/* --- 13. MATCH DISPLAY PAGE STYLES --- */
+
+.match-display-container {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.match-profile-column h2 {
+    color: var(--primary-red);
+    text-shadow: 0 0 8px var(--glow-red);
+}
+
+.match-profile-card {
+  background-color: var(--dark-card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.match-profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-red);
+  margin-bottom: 1rem;
+}
+
+.match-bio {
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.match-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-light);
+  text-decoration: none;
+}
+
+.detail-icon {
+  font-size: 1.2rem;
+}
+
+.whatsapp-link {
+  background-color: #25D366; /* WhatsApp Green */
+  color: white !important; /* Important to override other link styles */
+  padding: 10px 15px;
+  border-radius: 8px;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-link:hover {
+  transform: scale(1.05);
+}
+
+.unpin-button {
+  width: 100%;
+  background-color: #444;
+  border-color: #555;
+}
+
+.unpin-button:hover {
+  background-color: var(--primary-red);
+  border-color: var(--primary-red);
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+  .match-display-container {
+    grid-template-columns: 1fr;
+  }
+}
+/* --- 14. VIEW PROFILE & UPDATED CARD STYLES (REVISED) --- */
+
+/* --- Profile Hub Card Styles --- */
+.profile-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.card-profile-picture {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1rem auto;
+  display: block;
+  border: 3px solid var(--border-color);
+  transition: border-color 0.3s ease;
+}
+.profile-card:hover .card-profile-picture {
+  border-color: var(--primary-red);
+}
+.card-name {
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+.card-bio {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+}
+.view-profile-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+/* --- Single Profile Page Styles --- */
+.view-profile-page-wrapper {
+  display: flex;
+  justify-content: center; /* Center the card horizontally */
+  align-items: center; /* Center the card vertically */
+  min-height: calc(100vh - 200px); /* Take up vertical space */
+  padding: 2rem;
+}
+
+.view-profile-container {
+  position: relative; /* For the back button */
+  background-color: var(--dark-card);
+  padding: 2rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 550px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.back-link {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.view-profile-picture {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary-red);
+  box-shadow: 0 0 25px var(--glow-red);
+  margin-top: 1rem; /* Space below back button */
+}
+.view-profile-name {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  color: var(--text-light);
+  margin: 1rem 0 0.5rem 0;
+}
+.view-profile-location {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+.view-profile-bio {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: var(--text-light);
+}
+
+/* New grid for details like Love Language */
+.profile-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.detail-box {
+  background-color: var(--dark-bg);
+  padding: 1rem;
+  border-radius: 8px;
+}
+.detail-box h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: normal;
+}
+.detail-box p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-light);
+}
+
+.whatsapp-button {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  background-color: #25D366 !important;
+  border-color: #25D366 !important;
+  color: white !important;
+  text-shadow: none;
+}
+.no-contact-info {
+  background-color: var(--dark-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  color: var(--text-muted);
+}
+/* In frontend/src/index.css */
+
+/* --- REVISED Profile Card in the Hub --- */
+/* Remove .profile-card-link style, we don't need it anymore */
+
+/* In frontend/src/index.css */
+
+.profile-card {
+  text-align: center;
+  display: flex; /* Use Flexbox */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: space-between; /* Pushes button to bottom */
+  height: 100%;
+  background-color: var(--dark-card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  border-color: var(--primary-red);
+}
+
+/* Also, update the button style inside the card */
+.view-profile-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  margin-top: 1rem; /* Add some space above the button */
+}
+
+.card-profile-picture {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1rem auto;
+  display: block;
+  border: 3px solid var(--border-color);
+  transition: border-color 0.3s ease;
+}
+
+.profile-card:hover .card-profile-picture {
+  border-color: var(--primary-red);
+}
+
+.card-name {
+  color: var(--text-light); /* Make name white */
+  margin-bottom: 0.5rem;
+}
+
+.card-bio {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  flex-grow: 1; /* Allows bio to take up space, pushing button down */
+  margin-bottom: 1rem;
+}
+
+.view-profile-btn {
+  width: 100%;
+  padding: 10px; /* Slightly smaller padding for card button */
+  font-size: 1rem;
+}
+/* Add to the end of index.css */
+.image-upload-label.disabled {
+  background-color: #555;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+/* --- Particle Background --- */
+.background-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  /* This ensures the particles are behind all other content */
+}
